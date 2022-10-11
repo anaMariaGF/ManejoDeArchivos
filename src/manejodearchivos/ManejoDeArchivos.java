@@ -6,6 +6,10 @@
  */
 package manejodearchivos;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author Alumno Mañana
@@ -14,10 +18,17 @@ public class ManejoDeArchivos {
 
     /**
      * 
-     * @param args the command line arguments
+     *@String nombre nombre del archivo
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+       public static void crearArchivo (String nombre){
+             File archivo = new File(nombre);
+             try{
+             PrintWriter  salida = new PrintWriter(archivo);
+             salida.close(); //cierro el puntero "salida"
+             }catch(FileNotFoundException ex){
+                 ex.printStackTrace(System.out);
+             }
+         }
+ 
 }
